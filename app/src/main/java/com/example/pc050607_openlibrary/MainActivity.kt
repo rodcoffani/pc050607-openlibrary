@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.example.pc050607_openlibrary.compose.App
 import com.example.pc050607_openlibrary.ui.theme.Pc050607_openlibraryTheme
 
 class MainActivity : ComponentActivity() {

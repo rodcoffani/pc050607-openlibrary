@@ -1,4 +1,4 @@
-package com.example.pc050607_openlibrary
+package com.example.pc050607_openlibrary.compose
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.pc050607_openlibrary.MainViewModel
 import com.example.pc050607_openlibrary.ui.theme.Pc050607_openlibraryTheme
 
 @Composable

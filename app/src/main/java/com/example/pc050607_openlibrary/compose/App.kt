@@ -1,4 +1,4 @@
-package com.example.pc050607_openlibrary
+package com.example.pc050607_openlibrary.compose
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -55,10 +55,9 @@ fun App(
                         Text("Pesquisar Livros")
                     }
                     Button(onClick = { navController.navigate(App.Cached.name) }) {
-                        Text("Livros em Cache")
+                        Text("Pesquisas em Cache")
                     }
                 }
-//                navController.navigate(App.Search.name)
             }
             composable(App.Search.name) {
                 SearchScreen()

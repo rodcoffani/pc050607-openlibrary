@@ -1,4 +1,4 @@
-package com.example.pc050607_openlibrary
+package com.example.pc050607_openlibrary.compose
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack

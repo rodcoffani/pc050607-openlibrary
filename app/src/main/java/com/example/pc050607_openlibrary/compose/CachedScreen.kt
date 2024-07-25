@@ -1,4 +1,4 @@
-package com.example.pc050607_openlibrary
+package com.example.pc050607_openlibrary.compose
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,7 +21,7 @@ fun CachedScreen() {
             .padding(4.dp)
     ) {
         Text(
-            text = "LIVROS EM CACHE",
+            text = "PESQUISAS EM CACHE",
             style = TextStyle(
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,

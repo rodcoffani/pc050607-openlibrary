@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -29,6 +30,7 @@ fun App(
     navController: NavHostController = rememberNavController()
 ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
+    val cachedViewMode: CachedViewModel = viewModel(factory = AppViewModelProvider.Factory)
 
     Scaffold (
         topBar = {
@@ -63,7 +65,7 @@ fun App(
                 SearchScreen()
             }
             composable(App.Cached.name) {
-                CachedScreen()
+                CachedScreen(cachedViewMode)
             }
         }
     }

@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey
 data class OpenLibConsult (
     @PrimaryKey(autoGenerate = true)
     val numFound: Int = 0,
-    val start: Int = 0,
-    val numFoundExact: Boolean = false,
+    val start: Int,
+    val numFoundExact: Boolean,
     @Embedded
     val docs: OpenLibBook,
 )

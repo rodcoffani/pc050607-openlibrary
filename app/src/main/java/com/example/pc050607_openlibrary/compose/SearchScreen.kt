@@ -17,13 +17,10 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.pc050607_openlibrary.MainViewModel
 import com.example.pc050607_openlibrary.ui.theme.Pc050607_openlibraryTheme
 
 @Composable
 fun SearchScreen() {
-    val viewModel = viewModel<MainViewModel>()
     val textState = remember { mutableStateOf(TextFieldValue()) }
     val textSearch = remember { mutableStateOf("Start") }
 

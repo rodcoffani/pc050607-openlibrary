@@ -61,7 +61,11 @@ fun SearchScreen(
         ) {
             Text(text = "Insert test")
         }
-        Text(text = viewModel.label)
+        if(viewModel.loading) {
+            Text(text = "Buscando...")
+        } else {
+            Text(text = viewModel.label)
+        }
     }
 }
 

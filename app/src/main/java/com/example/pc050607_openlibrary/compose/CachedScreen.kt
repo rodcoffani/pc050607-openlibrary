@@ -9,6 +9,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
@@ -22,6 +23,9 @@ import com.example.pc050607_openlibrary.MainViewModel
 fun CachedScreen(
     viewModel: MainViewModel = viewModel()
 ) {
+    LaunchedEffect(Unit) {
+        viewModel.getAllBooks()
+    }
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -37,7 +41,11 @@ fun CachedScreen(
             modifier = Modifier
                 .padding(16.dp)
         )
-        Button(onClick = { viewModel.clearAllBooks() }) {
+        Button(
+            onClick = { viewModel.clearAllBooks() },
+            modifier = Modifier
+                .padding(8.dp)
+        ) {
             Text("Limpar cache")
         }
         if (viewModel.books.isEmpty())
@@ -47,10 +55,13 @@ fun CachedScreen(
             )
         else {
             LazyColumn {
-                itemsIndexed(viewModel.books) { _, _ ->
+                itemsIndexed(viewModel.books) { _, book ->
                     CachedSearchCard(
-                        search = "Test",
-                        numFound = 10
+                        title = book.title,
+                        author = book.authorName,
+                        firstSentence = book.firstSentence,
+                        publishYear = book.firstPublishYear,
+                        numPages = book.numberOfPagesMedian
                     )
                 }
             }

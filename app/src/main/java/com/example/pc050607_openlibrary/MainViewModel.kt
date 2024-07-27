@@ -50,13 +50,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getAllBooks() {
         viewModelScope.launch {
-            repository.getAllBooks()
+            books = repository.getAllBooks()
         }
     }
 
     fun clearAllBooks() {
         viewModelScope.launch {
             repository.deleteAllBooks()
+            books = listOf<OpenLibBook>()
         }
     }
 }

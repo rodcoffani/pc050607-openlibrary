@@ -1,23 +1,23 @@
 package com.example.pc050607_openlibrary.compose
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun CachedSearchCard(
-    search: String = "Default",
-    numFound: Int = 0,
+    title: String = "",
+    author: String = "",
+    firstSentence: String? = "",
+    numPages: Int = 0,
+    publishYear: Int = 0,
 ) {
     Card (
         modifier = Modifier
@@ -25,16 +25,15 @@ fun CachedSearchCard(
             .fillMaxWidth(),
         shape = RoundedCornerShape(8.dp),
     ) {
-        Row (
-            verticalAlignment = Alignment.CenterVertically
+        Column (
+            modifier = Modifier
+                .padding(4.dp)
         ) {
-            Column (
-                modifier = Modifier
-                    .width(50.dp)
-            ) {
-                Text(text = "Pesquisa: $search")
-                Text(text = "Achados: $numFound")
-            }
+            Text(text = "Título: $title")
+            Text(text = "Autor: $author")
+            Text(text = "Primeira frase: $firstSentence")
+            Text(text = "Número de páginas: $numPages")
+            Text(text = "Ano de publicação: $publishYear")
         }
     }
 }

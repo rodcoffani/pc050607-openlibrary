@@ -18,6 +18,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.pc050607_openlibrary.MainViewModel
 import com.example.pc050607_openlibrary.ui.theme.Pc050607_openlibraryTheme
 
 enum class App() {
@@ -30,7 +31,7 @@ fun App(
     navController: NavHostController = rememberNavController()
 ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
-    val cachedViewMode: CachedViewModel = viewModel(factory = AppViewModelProvider.Factory)
+    val viewModel: MainViewModel = viewModel()
 
     Scaffold (
         topBar = {
@@ -62,10 +63,10 @@ fun App(
                 }
             }
             composable(App.Search.name) {
-                SearchScreen()
+                SearchScreen(viewModel)
             }
             composable(App.Cached.name) {
-                CachedScreen(cachedViewMode)
+                CachedScreen(viewModel)
             }
         }
     }

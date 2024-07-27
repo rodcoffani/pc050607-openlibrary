@@ -1,4 +1,4 @@
-package com.example.pc050607_openlibrary.repository
+package com.example.pc050607_openlibrary.database
 
 import android.content.Context
 import androidx.room.Database
@@ -6,13 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [OpenLibConsult::class],
+    entities = [OpenLibBook::class],
     version = 1,
     exportSchema = false
 )
 
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun dao(): OpenLibConsultDAO
+    abstract fun bookDao(): OpenLibBookDao
 
     companion object {
         @Volatile
@@ -20,7 +20,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getDatabase(context: Context): AppDatabase {
             return Instance ?: synchronized(this) {
-                Room.databaseBuilder(context, AppDatabase::class.java, "app_database")
+                Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, "app_database")
                     .build()
                     .also { Instance = it }
             }

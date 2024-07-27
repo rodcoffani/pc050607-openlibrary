@@ -17,10 +17,14 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.pc050607_openlibrary.MainViewModel
 import com.example.pc050607_openlibrary.ui.theme.Pc050607_openlibraryTheme
 
 @Composable
-fun SearchScreen() {
+fun SearchScreen(
+    viewModel: MainViewModel = viewModel()
+) {
     val textState = remember { mutableStateOf(TextFieldValue()) }
     val textSearch = remember { mutableStateOf("Start") }
 
@@ -44,13 +48,20 @@ fun SearchScreen() {
             onValueChange = { textState.value = it }
         )
         Button(
-            onClick = { textSearch.value = textState.value.text },
+            onClick = { viewModel.getBookData(textState.value.text) },
             modifier = Modifier
                 .padding(8.dp)
         ) {
             Text(text = "Search")
         }
-        Text(text = textSearch.value)
+        Button(
+            onClick = { viewModel.label = textState.value.text },
+            modifier = Modifier
+                .padding(8.dp)
+        ) {
+            Text(text = "Insert test")
+        }
+        Text(text = viewModel.label)
     }
 }
 

@@ -16,10 +16,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.pc050607_openlibrary.MainViewModel
 
 @Composable
 fun CachedScreen(
-    cachedViewModel: CachedViewModel = viewModel()
+    viewModel: MainViewModel = viewModel()
 ) {
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -36,17 +37,17 @@ fun CachedScreen(
             modifier = Modifier
                 .padding(16.dp)
         )
-        Button(onClick = { cachedViewModel.clearAllConsults() }) {
+        Button(onClick = { viewModel.clearAllBooks() }) {
             Text("Limpar cache")
         }
-        if (cachedViewModel.consults.size == 0)
+        if (viewModel.books.isEmpty())
             Text(
                 "Nenhuma pesquisa em cache",
                 style = MaterialTheme.typography.bodyLarge
             )
         else {
             LazyColumn {
-                itemsIndexed(cachedViewModel.consults) {_, _ ->
+                itemsIndexed(viewModel.books) { _, _ ->
                     CachedSearchCard(
                         search = "Test",
                         numFound = 10

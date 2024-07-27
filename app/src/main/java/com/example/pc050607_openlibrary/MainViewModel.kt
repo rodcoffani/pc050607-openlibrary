@@ -25,11 +25,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             try {
                 val response = repository.getDataByBookTitle(bookTitle.trim().lowercase())
-                val s = "Author name: %s\n" +
-                        "First publish year: %d\n" +
-                        "Title: %s\n" +
-                        "First sentence: %s\n" +
-                        "Number of pages: %d\n"
+                val s = "Autor: %s\n" +
+                        "Ano de publicação: %d\n" +
+                        "Título: %s\n" +
+                        "Primeira frase: %s\n" +
+                        "Número de páginas: %d\n"
 
 
                 val doc = response.docs[0]

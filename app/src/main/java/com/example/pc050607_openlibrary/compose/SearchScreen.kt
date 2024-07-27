@@ -52,14 +52,7 @@ fun SearchScreen(
             modifier = Modifier
                 .padding(8.dp)
         ) {
-            Text(text = "Search")
-        }
-        Button(
-            onClick = { viewModel.label = textState.value.text },
-            modifier = Modifier
-                .padding(8.dp)
-        ) {
-            Text(text = "Insert test")
+            Text(text = "Buscar")
         }
         if(viewModel.loading) {
             Text(text = "Buscando...")

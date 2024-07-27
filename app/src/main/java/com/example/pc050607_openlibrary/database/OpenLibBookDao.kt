@@ -6,7 +6,7 @@ import androidx.room.Query
 
 @Dao
 interface OpenLibBookDao {
-    @Query("SELECT * FROM books WHERE title = :title LIMIT 1")
+    @Query("SELECT * FROM books WHERE title LIKE '%' || :title || '%' LIMIT 1")
     suspend fun getBookByTitle(title: String): OpenLibBook?
 
     @Insert
